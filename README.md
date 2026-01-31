@@ -5,6 +5,7 @@ This assignment involves testing a Singlish-to-Sinhala translation system and au
 
 📋 Project Structure
 text
+```
 assignment-1/
 ├── tests/
 │   └── test.spec.ts          # All test cases (positive, negative, UI)
@@ -17,6 +18,7 @@ assignment-1/
 │   ├── Pos_Fun_0001-success.png
 │   └── ...
 └── Book1.xlsx                # Test case documentation (provided)
+```
 ✨ Features
 34 Positive Test Cases (Pos_Fun_0001 to Pos_Fun_0034)
 
@@ -39,19 +41,23 @@ Node.js (v16 or higher)
 npm or yarn
 
 Steps
-Clone or download the project
-
+1. Clone or download the project
+```
 bash
 git clone <your-repository-url>
 cd assignment-1
-Install dependencies
-
+```
+2. Install dependencies
+```
 bash
 npm install
-Install Playwright browsers
-
+```
+3. Install Playwright browsers
+```
 bash
 npx playwright install
+```
+
 🧪 Test Case Coverage
 Sentence Structures
 Simple, compound, and complex sentences
@@ -109,9 +115,12 @@ Slang and colloquial phrasing
 
 🏃‍♂️ Running Tests
 Run All Tests
+```
 bash
 npx playwright test
+```
 Run Specific Test Categories
+```
 bash
 # Run only positive functional tests
 npx playwright test --grep "Pos_Fun"
@@ -124,7 +133,9 @@ npx playwright test --grep "Pos_Fun_0001"
 
 # Run tests matching pattern
 npx playwright test --grep "000[1-5]"
+```
 Run with Different Options
+```
 bash
 # Run with UI mode (interactive)
 npx playwright test --ui
@@ -139,7 +150,10 @@ npx playwright test --debug
 npx playwright test --project=chromium
 npx playwright test --project=firefox
 npx playwright test --project=webkit
+```
+
 Generate Reports
+```
 bash
 # Generate HTML report
 npx playwright test --reporter=html
@@ -152,24 +166,28 @@ npx playwright test --reporter=junit
 
 # Generate list reporter
 npx playwright test --reporter=list
+```
+
 📊 Test Results
 Test results are stored in:
 
-HTML Report: Automatically generated in playwright-report/
+HTML Report: Automatically generated in ```playwright-report/```
 
-Screenshots: Captured in test-results/ folder
+Screenshots: Captured in ```test-results/``` folder
 
 Console Output: Detailed logs in terminal
 
 Viewing Reports
 Run tests with HTML reporter:
-
+```
 bash
 npx playwright test --reporter=html
+```
 Open the report:
-
+```
 bash
 npx playwright show-report
+```
 🔧 Configuration
 playwright.config.ts
 The configuration includes:
@@ -186,7 +204,7 @@ Custom timeout settings
 
 Test Case Design
 Each test case follows this structure:
-
+```
 typescript
 test('Test_ID - Test Name', async ({ page }) => {
   // 1. Test case data
@@ -196,6 +214,7 @@ test('Test_ID - Test Name', async ({ page }) => {
   // 5. Assertion with flexible comparison
   // 6. Console logging for traceability
 });
+```
 Flexible Comparison Logic
 The test suite includes a smart comparison function that:
 
@@ -213,34 +232,36 @@ Provides detailed debugging information
 Common Issues
 "Cannot find input field" error
 
-Run the debug test first: npx playwright test --grep "Debug"
+Run the debug test first: ```npx playwright test --grep "Debug"```
 
-Update selectors in findAndTestTranslation function based on actual website structure
+Update selectors in ```findAndTestTranslation``` function based on actual website structure
 
 Tests failing due to timing
 
-Increase wait times in findAndTestTranslation function
+Increase wait times in ```findAndTestTranslation``` function
 
-Use await page.waitForTimeout(ms) for specific delays
+Use ```await page.waitForTimeout(ms)``` for specific delays
 
 Browser installation issues
-
+```
 bash
 # Reinstall Playwright browsers
 npx playwright install --force
+```
 TypeScript compilation errors
-
+```
 bash
 # Check TypeScript configuration
 npx tsc --noEmit
+```
 Debugging Tips
 Use the debug test to understand website structure
 
-Check screenshots in test-results/ folder
+Check screenshots in ```test-results/``` folder
 
-Run tests with --debug flag for step-by-step execution
+Run tests with ```--debug``` flag for step-by-step execution
 
-Use console.log() statements in test code for tracing
+Use ```console.log()``` statements in test code for tracing
 
 📝 Test Case Documentation
 Excel File Integration
@@ -335,8 +356,8 @@ Playwright Test
 Playwright API
 
 Assignment Resources
-Assignment PDF: Assignment 1.pdf
+Assignment PDF: ```Assignment 1.pdf```
 
-Test Case Template: IT23684676.xlsx
+Test Case Template: ```IT23684676.xlsx```
 
-Website Under Test: https://www.swifttranslator.com/
+Website Under Test: ```https://www.swifttranslator.com/```
