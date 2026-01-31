@@ -1,49 +1,49 @@
 # IT23684676
-IT3040 - ITPM Assignment 1: Singlish to Sinhala Translation Testing
-📋 Project Overview
-This project contains automated test cases for testing the Singlish to Sinhala translation functionality of the Swift Translator website (https://www.swifttranslator.com/). The tests are implemented using Playwright and cover both positive and negative scenarios as per the assignment requirements.
+IT3040 - ITPM Assignment 1
+🎯 Assignment Overview
+This assignment involves testing a Singlish-to-Sinhala translation system and automating the test cases using Playwright. The project evaluates the accuracy and robustness of the translation system across various linguistic scenarios.
 
-🎯 Assignment Requirements Met
-✅ Test Case Coverage
-34 Positive Functional Test Cases (Pos_Fun_0001 to Pos_Fun_0034)
+📋 Project Structure
+text
+assignment-1/
+├── tests/
+│   └── test.spec.ts          # All test cases (positive, negative, UI)
+├── playwright.config.ts       # Playwright configuration
+├── tsconfig.json             # TypeScript configuration
+├── package.json              # Dependencies and scripts
+├── README.md                 # This file
+├── test-results/             # Generated test results and screenshots
+│   ├── debug-website.png
+│   ├── Pos_Fun_0001-success.png
+│   └── ...
+└── Book1.xlsx                # Test case documentation (provided)
+✨ Features
+34 Positive Test Cases (Pos_Fun_0001 to Pos_Fun_0034)
 
-11 Negative Functional Test Cases (Neg_Fun_0001 to Neg_Fun_0011)
+11 Negative Test Cases (Neg_Fun_0001 to Neg_Fun_0011)
 
 1 UI Test Case (Neg_UI_0001)
 
-Total: 46 Automated Test Cases
+1 Debug Test for website exploration
 
-✅ Testing Categories Covered
-Sentence Structures: Simple, compound, complex sentences, interrogative and imperative forms
+Flexible comparison logic to handle minor output variations
 
-Daily Language Usage: Greetings, requests, responses, polite vs informal phrasing
+Comprehensive console logging for test execution details
 
-Word Combinations: Multi-word expressions, joined words, repeated words
+Automatic screenshot capture for debugging
 
-Grammatical Forms: Tense variations, negation patterns, pronoun variations
-
-Input Length Variation: Short (≤30), Medium (31-299), Long (≥300 characters)
-
-Mixed Language Content: English technical terms, abbreviations, place names
-
-Punctuation & Formatting: Currency, time, dates, special characters
-
-Informal Language: Slang and colloquial phrasing
-
-🚀 Setup Instructions
+🚀 Installation
 Prerequisites
-Node.js (version 16 or higher)
+Node.js (v16 or higher)
 
 npm or yarn
 
-Git
-
-Installation Steps
-Clone the repository
+Steps
+Clone or download the project
 
 bash
 git clone <your-repository-url>
-cd <repository-name>
+cd assignment-1
 Install dependencies
 
 bash
@@ -52,21 +52,62 @@ Install Playwright browsers
 
 bash
 npx playwright install
-Create necessary directories
+🧪 Test Case Coverage
+Sentence Structures
+Simple, compound, and complex sentences
 
-bash
-mkdir -p test-results
-📁 Project Structure
-text
-assignment1/
-├── tests/
-│   └── test.spec.ts          # All test cases (46 total)
-├── playwright.config.ts       # Playwright configuration
-├── package.json              # Project dependencies
-├── tsconfig.json             # TypeScript configuration
-├── README.md                 # This file
-└── test-results/             # Test results and screenshots (auto-generated)
-🧪 Running Tests
+Interrogative (questions) and imperative (commands) forms
+
+Positive and negative sentence forms
+
+Daily Language Usage
+Common greetings, requests, and responses
+
+Polite vs informal phrasing
+
+Frequently used day-to-day expressions
+
+Word Combinations & Patterns
+Multi-word expressions and frequent collocations
+
+Joined vs segmented word variations
+
+Repeated word expressions for emphasis
+
+Grammatical Forms
+Tense variations (past, present, future)
+
+Negation patterns
+
+Singular/plural usage and pronoun variations
+
+Request forms with varying politeness
+
+Input Length Variation
+Short inputs (≤30 characters)
+
+Medium inputs (31–299 characters)
+
+Long inputs (≥300 characters)
+
+Mixed Language Content
+English technical/brand terms embedded in Singlish
+
+Sentences containing places and common English words
+
+English abbreviations and short forms
+
+Punctuation & Formatting
+Inputs containing punctuation marks
+
+Currency, time formats, dates, and units of measurement
+
+Multiple spaces, line breaks, and paragraph-style inputs
+
+Informal Language
+Slang and colloquial phrasing
+
+🏃‍♂️ Running Tests
 Run All Tests
 bash
 npx playwright test
@@ -78,187 +119,224 @@ npx playwright test --grep "Pos_Fun"
 # Run only negative functional tests
 npx playwright test --grep "Neg_Fun"
 
-# Run UI tests
-npx playwright test --grep "Neg_UI"
-Run with Different Browsers
-bash
-# Run on Chromium (default)
-npx playwright test --project=chromium
+# Run specific test
+npx playwright test --grep "Pos_Fun_0001"
 
-# Run on Firefox
-npx playwright test --project=firefox
-
-# Run on WebKit (Safari)
-npx playwright test --project=webkit
-Run with UI Mode (Interactive)
+# Run tests matching pattern
+npx playwright test --grep "000[1-5]"
+Run with Different Options
 bash
+# Run with UI mode (interactive)
 npx playwright test --ui
-Generate Test Report
+
+# Run in headed mode (visible browser)
+npx playwright test --headed
+
+# Run with debug mode
+npx playwright test --debug
+
+# Run with specific browser
+npx playwright test --project=chromium
+npx playwright test --project=firefox
+npx playwright test --project=webkit
+Generate Reports
 bash
 # Generate HTML report
 npx playwright test --reporter=html
 
-# View the report
+# View the HTML report
 npx playwright show-report
-🔧 Test Implementation Details
-Test Case Design Approach
-Positive Tests: Verify correct translation of valid Singlish inputs
 
-Uses flexible comparison to account for minor formatting differences
+# Generate JUnit report
+npx playwright test --reporter=junit
 
-All positive tests are expected to pass
-
-Negative Tests: Test edge cases and error conditions
-
-Designed to verify system robustness
-
-Tests pass if system produces any reasonable output
-
-UI Tests: Verify user interface behavior
-
-Tests real-time conversion functionality
-
-Key Features of the Test Suite
-Automatic Element Detection: The test automatically finds input and output fields using multiple selectors
-
-Flexible Comparison: Uses similarity-based comparison for Sinhala text
-
-Comprehensive Logging: Detailed console output for each test
-
-Screenshot Capture: Automatically captures screenshots for debugging
-
-Error Resilience: Tests continue even if some elements aren't found
-
+# Generate list reporter
+npx playwright test --reporter=list
 📊 Test Results
-Expected Outcomes
-Positive Tests: All should pass (green in Excel)
+Test results are stored in:
 
-Negative Tests: All should complete successfully (may show warnings but still pass)
+HTML Report: Automatically generated in playwright-report/
 
-UI Tests: Should pass
+Screenshots: Captured in test-results/ folder
 
-Viewing Results
-Console Output: Detailed logs for each test
+Console Output: Detailed logs in terminal
 
-HTML Report: Comprehensive visual report
+Viewing Reports
+Run tests with HTML reporter:
 
-Screenshots: Saved in test-results/ directory
+bash
+npx playwright test --reporter=html
+Open the report:
 
-Excel File: Test results mapped to assignment template
+bash
+npx playwright show-report
+🔧 Configuration
+playwright.config.ts
+The configuration includes:
 
-🗂️ Mapping to Assignment Excel Template
-The test cases in test.spec.ts correspond to the Excel template columns:
+Multiple browser support (Chromium, Firefox, WebKit)
 
-Column in Excel	Corresponding Test Data
-TC ID	Test case ID (e.g., Pos_Fun_0001)
-Test case name	Test description
-Input length type	S/M/L based on character count
-Input	Singlish input text
-Expected output	Expected Sinhala output
-Actual output	Automatically captured during test
-Status	Pass/Fail (determined by test)
-Accuracy justification	Logic in test assertions
-What is covered	Testing categories covered
+HTML reporter for detailed results
+
+Screenshot and video capture on failure
+
+Test retry logic for CI environments
+
+Custom timeout settings
+
+Test Case Design
+Each test case follows this structure:
+
+typescript
+test('Test_ID - Test Name', async ({ page }) => {
+  // 1. Test case data
+  // 2. Navigation to website
+  // 3. Input field interaction
+  // 4. Output verification
+  // 5. Assertion with flexible comparison
+  // 6. Console logging for traceability
+});
+Flexible Comparison Logic
+The test suite includes a smart comparison function that:
+
+Normalizes whitespace
+
+Allows for minor formatting differences
+
+Checks for substring matches
+
+Calculates similarity scores for partial matches
+
+Provides detailed debugging information
+
 🐛 Troubleshooting
-Common Issues and Solutions
-"Element not found" errors
+Common Issues
+"Cannot find input field" error
 
 Run the debug test first: npx playwright test --grep "Debug"
 
-Update selectors in findAndTestTranslation function
+Update selectors in findAndTestTranslation function based on actual website structure
 
-Check if website structure has changed
+Tests failing due to timing
 
-Tests taking too long
+Increase wait times in findAndTestTranslation function
 
-Adjust wait times in findAndTestTranslation function
+Use await page.waitForTimeout(ms) for specific delays
 
-Reduce the page.waitForTimeout() values
+Browser installation issues
 
+bash
+# Reinstall Playwright browsers
+npx playwright install --force
 TypeScript compilation errors
 
-Ensure TypeScript is properly installed
-
-Run npm install @playwright/test typescript
-
-Browser not launching
-
-Run npx playwright install to install browsers
-
-Check firewall settings
-
-Debugging Tips
-Use UI mode for interactive debugging: npx playwright test --ui
-
-Check screenshots in test-results/ directory
-
-Run individual tests to isolate issues
-
-Use console.log() statements in tests for debugging
-
-📝 Assignment Submission Checklist
-✅ All 46 test cases implemented
-✅ Test cases cover all required categories
-✅ Playwright project properly configured
-✅ Tests can be executed with simple commands
-✅ README file with clear instructions
-✅ Git repository created and accessible
-✅ Excel file completed with test results
-✅ No plagiarism (similarity < 10%)
-✅ All files named with registration number
-
-🔗 GitHub Repository
-Repository URL: https://github.com/[your-username]/[repository-name]
-
-Git Commands Used
 bash
-# Initialize repository
-git init
+# Check TypeScript configuration
+npx tsc --noEmit
+Debugging Tips
+Use the debug test to understand website structure
 
-# Add all files
-git add .
+Check screenshots in test-results/ folder
 
-# Commit changes
-git commit -m "IT3040 Assignment 1: Complete test suite for Singlish to Sinhala translation"
+Run tests with --debug flag for step-by-step execution
 
-# Add remote origin
-git remote add origin https://github.com/[your-username]/[repository-name].git
+Use console.log() statements in test code for tracing
 
-# Push to main branch
-git push -u origin main
-Repository Features
-Publicly accessible
+📝 Test Case Documentation
+Excel File Integration
+The test cases in Book1.xlsx are implemented in test.spec.ts with:
 
-Clear commit history
+TC ID: Matches Excel test case IDs
 
-Well-documented README
+Test case name: Descriptive names from Excel
 
-Proper .gitignore file
+Input: Singlish text to translate
 
-All source code included
+Expected output: Expected Sinhala translation
 
-📈 Test Execution Results
-When you run the tests, you'll see:
+Actual output: Captured during test execution
 
-Console output showing each test's progress
+Status: Automatically determined (Pass/Fail)
 
-Pass/Fail status for each test case
+Test Categories Implemented
+✅ Daily language usage
 
-Screenshots for visual verification
+✅ Greeting/request/response
 
-HTML report for comprehensive analysis
+✅ Word combination/phrase pattern
 
-🎓 Learning Outcomes
-Through this assignment, I have demonstrated:
+✅ Mixed Singlish + English
 
-Ability to design comprehensive test cases
+✅ Slang/informal language
 
-Proficiency with Playwright automation framework
+✅ Typographical error handling
 
-Understanding of software testing principles
+✅ Names/places/common English words
 
-Skill in testing real-world web applications
+✅ Punctuation/numbers
 
-Knowledge of Sinhala language translation systems
+✅ Formatting (spaces/line breaks/paragraph)
 
-Experience with test automation best practices
+✅ Error handling/input validation
+
+📈 Quality Metrics
+Test Coverage
+Functional Coverage: 100% of specified test scenarios
+
+Input Variety: Short, medium, and long inputs
+
+Edge Cases: Special characters, mixed language, formatting issues
+
+UI Testing: Real-time conversion feedback
+
+Reliability Features
+Automatic retry on failure
+
+Screenshot capture for debugging
+
+Flexible assertion logic
+
+Comprehensive error handling
+
+🏗️ Building Upon This Project
+Adding New Test Cases
+Add test data following the existing pattern
+
+Use the findAndTestTranslation helper function
+
+Include appropriate console logging
+
+Run the new test individually first
+
+Modifying Selectors
+If the website structure changes:
+
+Run the debug test
+
+Update selectors in findAndTestTranslation
+
+Test with a few basic cases first
+
+Extending Functionality
+Add data-driven tests from external files
+
+Implement parallel test execution
+
+Add performance testing
+
+Include accessibility testing
+
+📚 References
+Playwright Documentation
+Playwright Getting Started
+
+Playwright Test
+
+Playwright API
+
+Assignment Resources
+Assignment PDF: Assignment 1.pdf
+
+Test Case Template: IT23684676.xlsx
+
+Website Under Test: https://www.swifttranslator.com/
