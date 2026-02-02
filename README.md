@@ -347,13 +347,7 @@ Add performance testing
 
 Include accessibility testing
 
-📚 References
-Playwright Documentation
-Playwright Getting Started
 
-Playwright Test
-
-Playwright API
 
 Assignment Resources
 Assignment PDF: ```Assignment 1.pdf```
